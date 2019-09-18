@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ExamplesModule } from './examples/examples.module';
     ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
+    ScrollDispatchModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

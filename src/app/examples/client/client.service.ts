@@ -14,7 +14,7 @@ export class ClientService {
    }
 
    getAll() {
-    return this.httpClient.get<Client[]>(this.clientUrl);
+    return this.httpClient.get<Client[]>(this.clientUrl + `/all`);
   }
 
   getOne(id: String) {

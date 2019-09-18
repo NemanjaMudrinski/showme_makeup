@@ -12,17 +12,19 @@ import { AccountDataComponent } from './account-data/account-data/account-data.c
 import { PersonalDataComponent } from './personal-data/personal-data/personal-data.component';
 import { ClientComponent } from './client/client/client.component';
 import { NgbdModalContent, NgbdModalComponent } from 'app/components/modal/modal.component';
-import { ReservationComponent } from './reservation/reservation.component';
 import { AboutComponent } from './about/about/about.component';
 import { ContactComponent } from './contact/contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { Material } from './utils/material';
+import { ReservationComponent } from './reservation/reservation/reservation.component';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         NgbModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        Material
     ],
     declarations: [
         LandingComponent,

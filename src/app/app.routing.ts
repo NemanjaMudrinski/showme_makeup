@@ -10,10 +10,10 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { LoginComponent } from './examples/login/login.component';
 import { RoleGuard } from './authorization/role.guard';
-import { ReservationComponent } from './examples/reservation/reservation.component';
 import { AboutComponent } from './examples/about/about/about.component';
 import { ContactComponent } from './examples/contact/contact/contact.component';
 import { DashboardComponent } from './examples/dashboard/dashboard/dashboard.component';
+import { ReservationComponent } from './examples/reservation/reservation/reservation.component';
 
 const routes: Routes =[
     { path: 'home',             component: ComponentsComponent },
