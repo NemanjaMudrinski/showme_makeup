@@ -1,0 +1,41 @@
+<div [formGroup]="personalDataForm">
+    <label>First Name</label>
+    <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-group"></i>
+          </span>
+        </div>
+        <input name="firstName" class="form-control"  type="text" placeholder="First Name" formControlName="firstName" required (focus)="focus=true" (blur)="focus=false" >
+      </div>
+    
+     <label>Last Name</label> 
+      <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-group"></i>
+            </span>
+          </div>
+          <input name="lastName" class="form-control"  type="text" placeholder="Last Name" formControlName="lastName" required (focus)="focus=true" (blur)="focus=false" >
+        </div>
+
+        <label>Phone Number</label> 
+        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa fa-group"></i>
+              </span>
+            </div>
+            <input name="phoneNumber" class="form-control"  type="text" placeholder="Phone number" formControlName="phoneNumber" required (focus)="focus=true" (blur)="focus=false" >
+          </div>
+
+          <div>
+            <button mat-stroked-button type="button" (click)="filePicker.click()">Profile picture</button>
+            <input hidden type="file" #filePicker (change)="onImagePicked($event)">
+            <!-- <mat-error>{{formError.mapErrors(personalDataForm.get('profileImage'), 'First name')}}</mat-error> -->
+          </div>
+          <div style=" height: 80px; margin: 16px 0;" class="image-preview"
+            *ngIf="imagePreview && imagePreview !== '' && personalDataForm.get('profileImage').valid && personalDataForm.get('profileImage').value">
+            <img style="height: 100%;" [src]="imagePreview" alt="Can't dispaly picture">
+          </div>
+</div>

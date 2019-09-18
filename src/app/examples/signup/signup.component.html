@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+        <div class="filter"></div>
+        <div class="row">
+            <div class="card card-register">
+              <h3 class="title">Sign Up!</h3>
+              <form [formGroup]="form" method="POST" >
+                <app-account-data [parrentForm]="form"></app-account-data>
+                <app-personal-data [parrentForm]="form"></app-personal-data>
+                <button class="btn btn-info btn-block btn-round" (click)="onSave()" type="submit">Save</button>
+              </form>
+          </div>
+        </div> 
+    </div>
+</div>

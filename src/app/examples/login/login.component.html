@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+    <div class="filter"></div>
+ 
+<div class="container">
+  <div class="row">
+      <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+        <div class="card card-register">
+          <h3 class="title">Login</h3>
+            <form class="register-form" (submit)="login(loginForm)" #loginForm="ngForm">
+                <label>Username</label>
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}" >
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-group"></i>
+                    </span>
+                  </div>
+
+                    <input name="username" class="form-control" ngModel type="text" placeholder="username" #usernameInput="ngModel" required (focus)="focus=true" (blur)="focus=false" >
+                  </div>
+
+                <label>Password</label>
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="nc-icon nc-key-25"></i>
+                    </span>
+                  </div>
+                    <input name="password" class="form-control" ngModel type="password" placeholder="password" #passwordInput="ngModel" required (focus)="focus1=true" (blur)="focus1=false" >
+                </div>
+                <button type="submit" class="btn btn-info btn-block btn-round">Login</button>
+            </form>
+            <div class="forgot">
+                <a routerLink="/register" routerLinkActive="active" routerLinkActiveOptions="{exact: true}" class="btn btn-link btn-danger">Forgot password?</a>
+            </div>
+        </div>
+      </div>
+  </div>
+  
+</div>
