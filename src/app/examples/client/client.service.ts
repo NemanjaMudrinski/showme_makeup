@@ -47,4 +47,7 @@ export class ClientService {
     return this.httpClient.put(this.clientUrl+`/${username}`, postData)
   }
 
+  getLoggedUser(username: String){
+    return this.httpClient.get<Client>(this.clientUrl + `/isLoggedIn/${username}`);
+  }
 }

@@ -20,4 +20,16 @@ export class ReservationService {
   getConfirmedReservations() {
     return this.httpClient.get<Reservation[]>(this.reservationUrl + `/confirmed-reservation`);
   }
+
+  addReservation(reservation: Reservation) {
+    return this.httpClient.post(this.reservationUrl + `/add`, reservation)
+  }
+
+  getConfirmedReservationByUser(username: String) {
+    return this.httpClient.get<Reservation[]>(this.reservationUrl + `/confirmed/client/${username}`);
+  }
+
+  getAllReservationByUser(username: String) {
+    return this.httpClient.get<Reservation[]>(this.reservationUrl + `/all-by-username/${username}`);
+  }
 }

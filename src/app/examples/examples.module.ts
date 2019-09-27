@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
 
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -17,6 +18,15 @@ import { ContactComponent } from './contact/contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { Material } from './utils/material';
 import { ReservationComponent } from './reservation/reservation/reservation.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
+import { CreateScheduleComponent } from './schedule/create-schedule/create-schedule.component';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from 'environments/environment';
+import { CalendarComponent } from './calendar/calendar/calendar.component';
+import { MakeAReservationComponent } from './reservation/make-a-reservation/make-a-reservation.component';
+import { ProfileOwnerComponent } from './profile/profile-owner/profile-owner.component';
+// import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+
 
 @NgModule({
     imports: [
@@ -24,7 +34,13 @@ import { ReservationComponent } from './reservation/reservation/reservation.comp
         FormsModule,
         NgbModule,
         ReactiveFormsModule,
-        Material
+        Material,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBSS--jig4u8mPllqaaU7Rg5tzQ4V7PRRc'
+        }),
+        NgxsModule.forRoot([],
+             { developmentMode: !environment.production }),
+        //   NgxsReduxDevtoolsPluginModule.forRoot()
     ],
     declarations: [
         LandingComponent,
@@ -40,7 +56,12 @@ import { ReservationComponent } from './reservation/reservation/reservation.comp
         ReservationComponent,
         AboutComponent,
         ContactComponent,
-        DashboardComponent
+        DashboardComponent,
+        ScheduleComponent,
+        CreateScheduleComponent,
+        CalendarComponent,
+        MakeAReservationComponent,
+        ProfileOwnerComponent
     ],
     entryComponents: [NgbdModalContent],
 })

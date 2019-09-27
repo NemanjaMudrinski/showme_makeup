@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import decode from 'jwt-decode';
 import { Subject } from 'rxjs';
+import { ClientService } from "app/examples/client/client.service";
+import { OwnerService } from "app/examples/owner/owner.service";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
@@ -10,7 +12,7 @@ export class AuthService {
   roleChanged = new Subject<any[]>();
   loggedInStatusChanged = new Subject<boolean>();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private clientService: ClientService, private ownerService:OwnerService) {}
 
   login(username: string, password: string){
     this.http.post<{token: string}>("http://localhost:8080/login/", {username: username, password: password}).subscribe(response =>{
@@ -55,6 +57,13 @@ export class AuthService {
     }
     return false;
   }
-  
+
+  getLoggedInUser() {
+    return this.clientService.getLoggedUser(this.getCurrentUser())
+  }
+
+  getLoggedInUserOwner() {
+    return this.ownerService.getLoggedUser(this.getCurrentUser())
+  }
 
 }

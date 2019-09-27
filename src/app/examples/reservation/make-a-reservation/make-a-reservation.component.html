@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+    <div class="filter"></div>
+  </div>
+  <!-- <div [formGroup]="makeReservation" >
+
+      <mat-form-field>
+          <mat-label>Schdule</mat-label>
+          <mat-select name = "schedule" formControlName="schedule">
+            <mat-option *ngFor="let schedule of schedules" [value]="schedule">
+              {{schedule.day}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+        <button mat-raised-button color="accent" (click)="save()">Save</button>
+
+      </div> -->
+      <div>
+          <form>
+              <label>Schdule</label>
+              <select name = "schedule" [(ngModel)]="schedule">
+                <option *ngFor="let schedule of schedules" [ngValue]="schedule">
+                  {{schedule.day}}
+                </option>
+              </select>
+            </form>
+          
+            <button  color="accent" (click)="save()">Save</button>
+    
+      </div>
+      
+      <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+              <ngb-tabset [justify]="'center'">
+                  <ngb-tab title="Reservations">
+                      <ng-template ngbTabContent >
+                          <!-- <div class="row following" id="follows"> -->
+                              <div class="col-md-6 ml-auto mr-auto">
+                                  <app-reservation></app-reservation>
+                              </div>
+                          <!-- </div> -->
+                      </ng-template>
+                  </ngb-tab>
+                  <ngb-tab title="Confirmed reservations">
+                      <ng-template ngbTabContent>
+                          <!-- <h3 class="text-muted">Not following anyone yet :(</h3>
+                          <br>
+                          <button class="btn btn-warning btn-round">Find artists</button> -->
+                      </ng-template>
+                  </ngb-tab>
+              </ngb-tabset>
+          </div>
+      </div>
+</div>
+
