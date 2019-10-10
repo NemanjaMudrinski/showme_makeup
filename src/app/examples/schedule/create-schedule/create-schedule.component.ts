@@ -17,7 +17,7 @@ export class CreateScheduleComponent implements OnInit {
   @ViewChild('scheduleTimeList') time: CdkDropList;
 
   schedules: Schedule[]= [];
-  schedule: Schedule = new Schedule();
+  // schedule: Schedule = new Schedule();
   schedulesTime: ScheduleTime[] = [];
   scheime: ScheduleTime = new ScheduleTime();
   copy: ScheduleTime[] = [];

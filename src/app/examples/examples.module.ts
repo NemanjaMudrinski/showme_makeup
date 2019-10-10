@@ -25,6 +25,8 @@ import { environment } from 'environments/environment';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { MakeAReservationComponent } from './reservation/make-a-reservation/make-a-reservation.component';
 import { ProfileOwnerComponent } from './profile/profile-owner/profile-owner.component';
+import { DayComponent } from './calendar/day/day.component';
+import { AllReservationsComponent } from './reservation/all-reservations/all-reservations.component';
 // import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 
@@ -61,7 +63,9 @@ import { ProfileOwnerComponent } from './profile/profile-owner/profile-owner.com
         CreateScheduleComponent,
         CalendarComponent,
         MakeAReservationComponent,
-        ProfileOwnerComponent
+        ProfileOwnerComponent,
+        DayComponent,
+        AllReservationsComponent
     ],
     entryComponents: [NgbdModalContent],
 })

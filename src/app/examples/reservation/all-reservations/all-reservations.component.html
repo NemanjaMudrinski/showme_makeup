@@ -1,0 +1,44 @@
+<div style="padding-right: 10px;">
+  <mat-table  [dataSource]="dataSource">
+    
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>No.</mat-header-cell>
+    <mat-cell *matCellDef="let i = index;"> {{i+1}}</mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="client.personalData.firstName">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let reservation">{{reservation.client.personalData.firstName}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="client.personalData.lastName">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let reservation">{{reservation.client.personalData.lastName}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="client.personalData.phoneNumber">
+      <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
+      <mat-cell *matCellDef="let reservation">{{reservation.client.personalData.phoneNumber}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="schedule.day">
+      <mat-header-cell *matHeaderCellDef>For Day</mat-header-cell>
+      <mat-cell *matCellDef="let reservation">{{reservation.schedule.day}}</mat-cell>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="schedule.time.time">
+      <mat-header-cell *matHeaderCellDef>In time</mat-header-cell>
+      <mat-cell *matCellDef="let reservation">{{reservation.schedule.time.time}}</mat-cell>
+  </ng-container> -->
+
+  <!-- <ng-container matColumnDef="reservationMade">
+      <mat-header-cell *matHeaderCellDef>Reservation made</mat-header-cell>
+      <mat-cell *matCellDef="let reservation">{{reservation.reservationMade | date:'medium'}}</mat-cell>
+  </ng-container> -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

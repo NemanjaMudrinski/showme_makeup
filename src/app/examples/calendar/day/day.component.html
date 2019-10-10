@@ -1,0 +1,51 @@
+<!-- <div class="container width-50">
+  <h1>DAY: {{clicked | date:'mediumDate'}}</h1>
+  <div *ngFor="let event of listOfEvents">
+    <button class="btn btn-primary btn-round">{{event.time.time}}</button>
+  </div>
+  <br>
+  <div>
+    <h3>Add Event</h3>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Date: {{clicked | date:'mediumDate'}}" disabled>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput placeholder="Day" [(ngModel)]="addSchedule.day">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Faculty</mat-label>
+        <mat-select name = "scheduleTime" >
+          <mat-option *ngFor="let scheduleTime of schedulesTime" [value]="scheduleTime.time" >
+            {{scheduleTime.time}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput placeholder="Type" [(ngModel)]="addEvent.type">
+      </mat-form-field> 
+      <button class="btn btn-danger btn-round" (click)="newEvent()">Add Event</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="container width-50"> 
+  <h3>Crete Schedule</h3>
+  <div class="example-container">
+    <form>
+      <input [(ngModel)]="addSchedule.day" name="day" placeholder="Date: {{clicked | date:'mediumDate'}}" disabled>
+      <select [(ngModel)]="addSchedule.time" name="time">
+        <option *ngFor="let scheduleTime of schedulesTime" [ngValue]="scheduleTime">
+          {{scheduleTime.time}}
+        </option>
+      </select>
+      <button class="btn btn-danger btn-round" (click)="newEvent()"> Save</button>
+    </form>
+    <div *ngFor="let event of listOfEvents">
+        <button class="btn btn-primary btn-round">{{event.time.time}}</button>
+      </div>
+  </div>
+</div>

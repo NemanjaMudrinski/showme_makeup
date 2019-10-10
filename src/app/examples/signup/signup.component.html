@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
         <div class="filter"></div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="card card-register">
               <h3 class="title">Sign Up!</h3>
               <form [formGroup]="form" method="POST" >
@@ -10,6 +10,38 @@
                 <button class="btn btn-info btn-block btn-round" (click)="onSave()" type="submit">Save</button>
               </form>
           </div>
-        </div> 
+        </div>  -->
     </div>
 </div>
+
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+    <form [formGroup]="form">
+      <ng-template >Fill out your name</ng-template>
+      <app-account-data [parrentForm]="form"></app-account-data>
+                
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <app-personal-data [parrentForm]="form"></app-personal-data>
+              
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="onSave()">Save</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

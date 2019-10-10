@@ -7,11 +7,16 @@ import { FormErrorService } from '../utils/formErrorService';
 import { ClientService } from '../client/client.service';
 import { Directionality } from '@angular/cdk/bidi';
 import {Title} from "@angular/platform-browser";
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+
 
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.scss']
+    styleUrls: ['./signup.component.scss'],
+    providers: [{
+      provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+    }]
 })
 export class SignupComponent extends CdkStepper implements OnInit {
     
@@ -19,6 +24,10 @@ export class SignupComponent extends CdkStepper implements OnInit {
     private username : string;
     public client: Client = new Client();
     public form = new FormGroup({}); 
+
+    firstFormGroup: FormGroup;
+    secondFormGroup: FormGroup;
+
     
     constructor(private titleService: Title, dir: Directionality, changeDetectorRef: ChangeDetectorRef,private clientService: ClientService, private route: ActivatedRoute, public formErrorService: FormErrorService) { 
       super(dir, changeDetectorRef)
@@ -33,12 +42,19 @@ export class SignupComponent extends CdkStepper implements OnInit {
         this.form = new FormGroup({
           
         });
+
+        // this.firstFormGroup = new FormGroup({
+
+        // }),
+        // this.secondFormGroup = new FormGroup({
+
+        // });
         if (this.route.snapshot.paramMap.get("username")) {
             this.edit = true;
             this.username = this.route.snapshot.paramMap.get("username");
             this.clientService.getOneByUsername(this.username).subscribe((data: Client) => {
               this.client = data;
-              this.form.patchValue(this.client);
+              // this.form.patchValue(this.client);
             });
           }
         }
@@ -69,5 +85,6 @@ export class SignupComponent extends CdkStepper implements OnInit {
         }
       }
 
+      
       
 }

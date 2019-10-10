@@ -14,7 +14,7 @@ export class ReservationService {
   }
 
   getAll() {
-    return this.httpClient.get<Reservation[]>(this.reservationUrl + `/all`)
+    return this.httpClient.get<Reservation[]>(this.reservationUrl + `/future`)
   }
 
   getConfirmedReservations() {

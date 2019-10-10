@@ -2,34 +2,63 @@
   <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
     <div class="filter"></div>
   </div>
-  <!-- <div [formGroup]="makeReservation" >
-
-      <mat-form-field>
-          <mat-label>Schdule</mat-label>
-          <mat-select name = "schedule" formControlName="schedule">
-            <mat-option *ngFor="let schedule of schedules" [value]="schedule">
-              {{schedule.day}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      
-        <button mat-raised-button color="accent" (click)="save()">Save</button>
-
-      </div> -->
-      <div>
-          <form>
-              <label>Schdule</label>
-              <select name = "schedule" [(ngModel)]="schedule">
-                <option *ngFor="let schedule of schedules" [ngValue]="schedule">
-                  {{schedule.day}}
-                </option>
-              </select>
-            </form>
-          
-            <button  color="accent" (click)="save()">Save</button>
+  <div class="container-fluid">
+      <div class="row">
+        <div >
+          <div class="center" id="calendar-container">
+              <!-- <button class="left" mat-raised-button color="primary" (click)="prevMonth()"> prev </button> -->
+              <button class="btn btn-primary btn-round left" (click)="prevMonth()"> Perv Month</button>
+              <div class="left">{{date.format('MMMM')}} {{date.format('YYYY')}}</div>
+              <button class="btn btn-primary btn-round left" (click)="nextMonth()"> Next Month </button>
+              <!-- <button class="left" mat-raised-button color="primary" (click)="nextMonth()"> next </button>     -->
+          </div>
+          <div class="calendar-container">
     
-      </div>
+            <div class="container" id="calendar-container">
+              <div class="weekendNameDiv textCenter">Sun</div>
+              <div class="dayNameDiv textCenter">Mon</div>
+              <div class="dayNameDiv textCenter">Tue</div>
+              <div class="dayNameDiv textCenter">Wed</div>
+              <div class="dayNameDiv textCenter">Thu</div>
+              <div class="dayNameDiv textCenter">Fri</div>
+              <div class="weekendNameDiv textCenter">Sat</div>
+            </div>
+    
+            <div class="container"  id="calendar-container">
+              <div *ngFor='let day of dayObjects; let i = index;'>
+                <div>
+                    <div id="{{i}}" name="divToday" class="dayDiv textCenter" (click)="clickedd(day.day)"  [ngClass]="{'inactive':!day.day}">{{day.day | date: 'd'}}
+                        <span matBadge="{{day.events}}" [ngClass]="{'invisible':!day.events}" matBadgeOverlap="false"></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+    
+        
+        <div *ngFor="let s of schedules" >
+            <form >
+                <input placeholder="{{s.time.time}}"  [(ngModel)]="reservation.schedule" name="schedule" class="btn btn-primary btn-round"  (click)="save()">
+            
+          </form>
       
+        </div>
+    
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+    <div [hidden]="!loggedUser"> 
       <div class="nav-tabs-navigation">
           <div class="nav-tabs-wrapper">
               <ngb-tabset [justify]="'center'">

@@ -12,7 +12,7 @@ export class ClientComponent implements OnInit {
 
   clients : Client[] = [];
   student : Client = new Client();
-  displayedColumns: string[] = ['id', 'personalData.firstName', 'personalData.lastName'];
+  displayedColumns: string[] = ['id', 'personalData.firstName', 'personalData.lastName', 'personalData.phoneNumber', 'delete'];
   dataSource = new MatTableDataSource<Client>(this.clients);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -43,5 +43,11 @@ export class ClientComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  deleteClient(id: String) {
+    this.clientService.delete(id).subscribe((data: any) => {
+      this.getAll();
+    });
   }
 }

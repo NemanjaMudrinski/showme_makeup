@@ -16,6 +16,7 @@ import { ReservationComponent } from './examples/reservation/reservation/reserva
 import { MakeAReservationComponent } from './examples/reservation/make-a-reservation/make-a-reservation.component';
 import { ProfileOwnerComponent } from './examples/profile/profile-owner/profile-owner.component';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { CalendarComponent } from './examples/calendar/calendar/calendar.component';
 
 const routes: Routes =[
     { path: 'home',             component: ComponentsComponent },

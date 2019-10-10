@@ -42,5 +42,15 @@ export class ScheduleService {
    getFutureSchedule() {
      return this.httpClient.get<Schedule[]>(this.scheduleUrl + `/future`)
    }
+
+   getCurrentEvents(day: Number, month: Number, year: Number){
+    return this.httpClient.get<Schedule[]>(`http://localhost:8080/schedule/eventCount/${day}/${month}/${year}`);
+  }
+
+  getEventsCount(month: Number, year: Number){
+    return this.httpClient.get<Schedule[]>(`http://localhost:8080/schedule/eventCount/${month}/${year}`);
+  }
+
+
    
 }

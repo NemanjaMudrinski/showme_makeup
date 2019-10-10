@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   displayedColumns: string[] = ['id', 'reservationMade', 'confirmed'];
   dataSource = new MatTableDataSource<Reservation>(this.reservations);
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator ) paginator: MatPaginator;
 
 
   constructor(private authService: AuthService, private fileService: FileService, private reservationService: ReservationService, private titleService:Title) {

@@ -1,3 +1,42 @@
-<p>
-  calendar works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="container center" id="calendar-container">
+          <!-- <button class="left" mat-raised-button color="primary" (click)="prevMonth()"> prev </button> -->
+          <button class="btn btn-primary btn-round left" (click)="prevMonth()"> Perv Month</button>
+          <div class="left">{{date.format('MMMM')}} {{date.format('YYYY')}}</div>
+          <button class="btn btn-primary btn-round left" (click)="nextMonth()"> Next Month </button>
+          <!-- <button class="left" mat-raised-button color="primary" (click)="nextMonth()"> next </button>     -->
+      </div>
+      <div class="calendar-container">
+
+        <div class="container" id="calendar-container">
+          <div class="weekendNameDiv textCenter">Sun</div>
+          <div class="dayNameDiv textCenter">Mon</div>
+          <div class="dayNameDiv textCenter">Tue</div>
+          <div class="dayNameDiv textCenter">Wed</div>
+          <div class="dayNameDiv textCenter">Thu</div>
+          <div class="dayNameDiv textCenter">Fri</div>
+          <div class="weekendNameDiv textCenter">Sat</div>
+        </div>
+
+        <div class="container"  id="calendar-container">
+          <div *ngFor='let day of dayObjects; let i = index;'>
+            <div>
+                <div id="{{i}}" name="divToday" class="dayDiv textCenter" (click)="clicked(day.day)"  [ngClass]="{'inactive':!day.day}">{{day.day | date: 'd'}}
+                    <span matBadge="{{day.events}}" [ngClass]="{'invisible':!day.events}" matBadgeOverlap="false"></span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+        <app-day></app-day>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,105 @@
+  
+.dayDiv {
+    width: 8vw;
+    height: 8vw;
+    background: rgb(155, 188, 223);
+    border: 1px solid white;
+    float: left;
+}
+
+.textCenter {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 6vw;
+}
+
+.today {
+    width: 6vw;
+    height: 6vw;
+    background: #90EE90;
+    border: 1px solid white;
+    float: left;
+}
+
+.dayNameDiv {
+    width: 8vw;
+    height: 8vw;
+    background: rgb(95, 159, 228);
+    border: 1px solid white;
+    float: left;
+}
+
+.weekendNameDiv {
+    width: 8vw;
+    height: 8vw;
+    background: gray;
+    border: 1px solid white;
+    float: left;
+}
+
+#calendar-container {
+    width: 60vw;
+}
+
+.calendar-container {
+    margin-top: 10%;
+}
+
+.inactive {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+// .center {
+//     position: absolute;
+//     left: 32%;
+//     top: 5%;
+// }
+
+// .left {
+//     margin: auto;
+//     text-align: center;
+//     float: left;
+// }
+
+.attr {
+    float: left;
+    width: 6vw;
+    height: 6vw;
+}
+
+.dayDiv:hover {
+	opacity: 0.4;
+}
+
+.flex-container {
+    display: flex;
+  }
+
+
+  .example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+
