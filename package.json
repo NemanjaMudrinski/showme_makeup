@@ -37,7 +37,7 @@
     "core-js": "2.4.1",
     "file-saver": "^2.0.2",
     "i18n": "^0.8.3",
-    "jquery": "3.2.1",
+    "jquery": "3.5.0",
     "jw-bootstrap-switch-ng2": "2.0.1",
     "jwt-decode": "^2.2.0",
     "ng2-nouislider": "1.7.12",
